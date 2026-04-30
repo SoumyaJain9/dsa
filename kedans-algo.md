@@ -8,22 +8,19 @@ check the sum of all the subarrays -> TC very high
 ## approach 
 ```class Solution {
     public int maxSubArray(int[] nums) {
+        int n=nums.length;
         int t=nums[0];
         int g=nums[0];
-        int n=nums.length;
         for (int i=1;i<n;i++){
-            if(t<0){
+            if (t<0){
                 t=0;
             }
             t=t+nums[i];
-            if(t>g){
+            if (t>g){
                 g=t;
             }
-            if (t<0){
-                    t=0;
-                }
         }
         return g;
-        
     }
-}```
+}
+```

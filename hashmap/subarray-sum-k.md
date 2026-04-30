@@ -6,29 +6,13 @@ adding on elements with the beginning position fixed then moving to the next ele
 Time: O(n²)
 Space: O(1)
 
-## approach 
-PS=prefix sum
--> prefix sum
-subarray sum (i to j)=PS[j]-PS[i-1]
--> k= PS[j] - PS[i-1]
-PS[i-1]=PS[j]-k
--> unordered map 
-PS|frequency(table)
-eg-[9,4,0,20,3,10,5]
-9|1 (9)
-13|2 (9+4)
-33|1 (9+4+0)
-36|1 (etc)
-
-## algo
--> first make a hashmap (int,int) to store (PS,frequency).
--> map.put(0,1) is imp as later when we get sum 0 we add it to the frequency
--> loop trough nums by elements
--> keep updating sum with new element
--> check if hashmap contains (sum-k) total sum - target
--> if yes then do (c=c+map.get(sum-k);) -> this will give the freq of subarrays ending at currect position giving k sum.
--> then do this (map.put(sum,map.getOrDefault(sum,0)+1);) ->this will add the current sum in the hashmap if it is not there or add to the freq if already exists
--> atlast return the count 
+## explaination 
+first make a hashmap
+then put the base condition (0,1)-> very imp as sometimes the subarray starts from the start so we need 0 as the sum to take subarray from the start 
+prefix = sum till that index 
+we use (prefix(i) -prefix(j)=k) where prefix i is current index and prefix j is some previous index 
+we reaarange this to (prefix(i)-k=prefix(j)) i.e (sum-k)
+and if the sum-k exits in the hashmap then it means that there has been subarray(s) where the subarray sum is k 
 
 ## edge case 
 if array has only one elemnt 
@@ -36,21 +20,22 @@ if all elements are zero
 negative numbers
 
 ## code
-```class Solution {
+```
+class Solution {
     public int subarraySum(int[] nums, int k) {
-        HashMap <Integer,Integer> map=new HashMap<>();
-        map.put(0,1);
+        HashMap<Integer, Integer> map = new HashMap<>();
         int sum=0;
-        int c=0;
+        int count=0;
+        map.put(0,1);
         for (int num:nums){
             sum=sum+num;
             if (map.containsKey(sum-k)){
-                c=c+map.get(sum-k);
+                count=count+map.get(sum-k);
             }
             map.put(sum,map.getOrDefault(sum,0)+1);
         }
-        return c;
-        
+        return count;   
     }
-}```
+}
+```
 TC & SC = O(n)
