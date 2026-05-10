@@ -4,8 +4,6 @@ return the length of thr longest subarray with sum k -> gfg
 take out all subrarrays and tell teh longest
 ## approach 
 ```
-// User function Template for Java
-
 class Solution {
     public int longestSubarray(int[] arr, int k) {
         int n=arr.length;
