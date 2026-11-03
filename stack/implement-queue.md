@@ -2,6 +2,7 @@
 leet -> 225 
 implement stack using queue 
 ## explaination 
+```
 in a queue the functions are 
 poll() to delete elements -> like pop()
 offer() to add elements from the rear end (right side) -> like add()
@@ -9,7 +10,8 @@ peek() to return the top element -> like top()
 now as we want to impement a stack i.e. LIFO 
 for that we need to have the latest element on the front side
 therefore 
-## code 
+## code
+```
 ```
 class MyStack {
     Queue<Integer> q1=new LinkedList<>();
