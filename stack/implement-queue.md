@@ -6,12 +6,13 @@ implement stack using queue
 in a queue the functions are 
 poll() to delete elements -> like pop()
 offer() to add elements from the rear end (right side) -> like add()
+also push() -> adds elements from the front
 peek() to return the top element -> like top()
 now as we want to impement a stack i.e. LIFO 
 for that we need to have the latest element on the front side
 therefore 
-## code
 ```
+## code 
 ```
 class MyStack {
     Queue<Integer> q1=new LinkedList<>();
