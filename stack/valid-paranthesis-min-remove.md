@@ -32,3 +32,9 @@ class Solution {
 ```
 ## explaination 
 bcz a string is immutable we are using string builder 
+then we will make a list called remove in which we add all teh extra unecessary brackets so for that 
+we check if its the startng bracket ( -> then just push in stack 
+if the closing bracket then we firstly check if the stack is empty -> which means it is extra unecessary then we add it in remove else just pop it 
+after traversing the whole thing if we have any brackets left in stack then we add them in remove 
+then reverse its order bcz while removing if we remove from the front then the index will be changed for the later things tehreforre we reverse the order of remove and then start deleting by index 
+also reverse has index stored in it of the brackets
