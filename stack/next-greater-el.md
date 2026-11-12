@@ -50,4 +50,5 @@ class Solution {
     }
 }
 ```
+## explaination
 we use the monotonic stack approach and hashmap to store the next greater element of each number in nums2 then finally in the ans array we retrive teh numbers from the hashmap which were present in nums1
